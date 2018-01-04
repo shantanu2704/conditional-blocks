@@ -59,6 +59,20 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 			
 			wp_enqueue_style( 'conditional_block_editor', CB_URL . 'assets/css/editor.css', array( 'wp-blocks', 'wp-i18n', 'wp-element' ) );
 		}
+		
+		/**
+		 * Enqueue Block Assets
+		 * 
+		 * Enqueue the assets for the frontend
+		 * 
+		 * `wp-blocks`: dependency to include the css
+		 * 
+		 * @since 	0.0.1
+		 */
+		public function enqueue_frontend_assets() {
+			
+			wp_enqueue_style('conditional_block_frontend', CB_URL . 'assets/css/frontend.css', array('wp-blocks') );
+		}
 
 	} // class
 
