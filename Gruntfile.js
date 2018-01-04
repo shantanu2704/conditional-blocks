@@ -22,7 +22,7 @@ module.exports = function ( grunt ) {
 					'path/to/js/file/1',
 					'path/to/js/file/2',
 				],
-				dest: 'assets/js/plugin-slug.min.js',
+				dest: 'assets/js/conditional-blocks.min.js',
 			}
 		},
 		uglify: {
