@@ -43,3 +43,11 @@ if ( !defined( 'CB_URL' ) ) {
 	 */
 	define( 'CB_URL', trailingslashit( plugin_dir_url(  __FILE__ ) ) );
 }
+
+/**
+ * The core plugin class
+ */
+require_once CB_PATH . 'includes/class-conditional-blocks.php';
+
+$tsv = new Conditional_Blocks();
+$tsv->init();
