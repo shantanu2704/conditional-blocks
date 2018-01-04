@@ -26,7 +26,19 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 		 */
 		public function init() {
 
-			add_action( 'enqueue_block_editor_assets', array( $this, 'cb_create_block' ) );
+			add_action( 'enqueue_block_editor_assets', array( $this, 'create_block' ) );
+		}
+		
+		/**
+		 * Create Block
+		 * 
+		 * @since 0.0.1
+		 */
+		public function create_block() {
+			
+			$this->enqueue_editor_assets();
+			
+			$this->enqueue_block_assets();
 		}
 
 	}
