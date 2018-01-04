@@ -19,7 +19,11 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 	 */
 	class Conditional_Blocks {
 
-		// Initialise the class
+		/**
+		 * Initialise the class
+		 *
+		 * @since 0.0.1 
+		 */
 		public function init() {
 
 			add_action( 'enqueue_block_editor_assets', array( $this, 'cb_create_block' ) );
