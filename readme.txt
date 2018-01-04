@@ -1,7 +1,7 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
+Contributors: wpshades
+Version: 0.0.1
+Tags: gutenberg, blocks
 Requires at least: 4.6
 Tested up to: 4.7
 Stable tag: 4.3
