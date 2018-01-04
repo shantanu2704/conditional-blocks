@@ -34,7 +34,7 @@ module.exports = function ( grunt ) {
 					sourceMap: true,
 				},
 				files: {
-					'assets/js/plugin-slug.min.js': [ 'assets/js/plugin-slug.min.js' ]
+					'assets/js/conditional-blocks.min.js': [ 'assets/js/conditional-blocks.min.js' ]
 				}
 			}
 		},
