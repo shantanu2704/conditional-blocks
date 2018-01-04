@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Plugin Name Ruleset">
-	<description>Coding Standard Rules for Plugin Name project</description>
+<ruleset name="Conditional Blocks Ruleset">
+	<description>Coding Standard Rules for Conditional Blocks project</description>
 
 	<!-- Exclude the Node Modules directory. -->
 	<exclude-pattern>/node_modules/*</exclude-pattern>
