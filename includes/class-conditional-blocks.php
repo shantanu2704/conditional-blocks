@@ -29,6 +29,10 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 			add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_assets' ) );
 			
 			add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_assets' ) );
+			
+			register_block_type( 'cb/my-conditional-block', array(
+				'render_callback' => array( $this, render_conditional_block )
+			) );
 		}
 		
 		/**
@@ -62,7 +66,21 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 			
 			wp_enqueue_style('conditional_block_frontend', CB_URL . 'assets/css/frontend.css', array('wp-blocks') );
 		}
+		
+		/**
+		 * Render conditional block
+		 * 
+		 * @param type $attributes
+		 * 
+		 * @since 0.0.1
+		 */
+		public function render_conditional_block( $attributes ) {
+			
+			print_r($attributes);
+			
+		}
 
-	} // class
+	}
 
+	// class
 }// if ( !class_exists )

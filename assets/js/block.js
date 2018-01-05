@@ -1,50 +1,55 @@
-var el = wp.element.createElement;
-var registerBlockType = wp.blocks.registerBlockType;
-Editable = wp.blocks.Editable;
+( function () {
+    var el = wp.element.createElement;
+    var registerBlockType = wp.blocks.registerBlockType;
+    var Editable = wp.blocks.Editable;
 
-registerBlockType(
-    'cb/my_conditional_block', {
-	title: 'Conditional Block',
+    console.log(el);
+    console.log(registerBlockType);
+    console.log(Editable);
 
-	icon: 'edit',
+    registerBlockType('cb/my-conditional-block', {
+	    title: 'Conditional Block',
 
-	category: 'common',
+	    icon: 'edit',
 
-	attributes: {
-	    content: {
-		type: 'array',
-		source: 'children',
-		selector: 'p'
-	    }
-	},
+	    category: 'common',
 
-	edit: function ( props ) {
-	    var content = props.attributes.content;
-	    var focus = props.focus;
-
-	    function onChangeContent( newContent ) {
-		props.setAttributes( { content: newContent } );
-	    }
-
-	    return el(
-		Editable,
-		{
-		    tagName: 'p',
-		    className: props.className,
-		    onChange: onChangeContent,
-		    value: content,
-		    focus: focus,
-		    onFocus: props.setFocus
+	    attributes: {
+		content: {
+		    type: 'array',
+		    source: 'children',
+		    selector: 'p'
 		}
-	    );
-	},
+	    },
 
-	save: function ( props ) {
-	    var content = props.attributes.content;
-	    return el( 'p', { className: props.className }, content );
+	    edit: function ( props ) {
+		var content = props.attributes.content;
+		var focus = props.focus;
+
+		function onChangeContent( newContent ) {
+		    props.setAttributes( { content: newContent } );
+		}
+
+		return el(
+		    Editable,
+		    {
+			tagName: 'p',
+			className: props.className,
+			onChange: onChangeContent,
+			value: content,
+			focus: focus,
+			onFocus: props.setFocus
+		    }
+		);
+	    },
+
+	    save: function ( props ) {
+		var content = props.attributes.content;
+		return el( 'p', { className: props.className }, content );
+
+	    }
 
 	}
+    );
 
-    }
-);
-
+} )();
