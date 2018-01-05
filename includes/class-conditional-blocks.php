@@ -30,9 +30,8 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 			
 			add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_assets' ) );
 			
-			register_block_type( 'cb/my-conditional-block', array(
-				'render_callback' => array( $this, render_conditional_block )
-			) );
+			add_action( 'plugins_loaded', array( $this, 'register_block' ) );
+
 		}
 		
 		/**
@@ -78,6 +77,13 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 			
 			print_r($attributes);
 			
+		}
+		
+		public function register_block() {
+			
+			register_block_type( 'cb/my-conditional-block', array(
+				'render_callback' => array( $this, render_conditional_block )
+			) );
 		}
 
 	}
