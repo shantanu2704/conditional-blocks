@@ -14,23 +14,27 @@
 
 	    category: 'common',
 
-	    attributes: {
+		attributes: {
 		content: {
 		    type: 'array',
 		    source: 'children',
 		    selector: 'p'
 		}
-	    },
+		},
 
 	    edit: function ( props ) {
 		var content = props.attributes.content;
 		var focus = props.focus;
 
-		function onChangeContent( newContent ) {
-		    props.setAttributes( { content: newContent } );
-		}
+			/**
+			 * Update content on change.
+			 */
+			function onChangeContent( newContent ) {
+				props.setAttributes( { content: newContent } );
+			}
 
-		return el(
+			// The editable content.
+			return el(
 		    Editable,
 		    {
 			tagName: 'p',
@@ -38,10 +42,10 @@
 			onChange: onChangeContent,
 			value: content,
 			focus: focus,
-			onFocus: props.setFocus
-		    }
-		);
-	    },
+					onFocus: props.setFocus
+				}
+			);
+		},
 
 	    save: function ( props ) {
 		var content = props.attributes.content;
@@ -50,6 +54,6 @@
 	    }
 
 	}
-    );
+			);
 
 } )();

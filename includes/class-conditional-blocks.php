@@ -46,7 +46,7 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 		 * @since 0.0.1
 		 */
 		public function enqueue_editor_assets() {
-
+			
 			wp_enqueue_script( 'conditional_block', CB_URL . 'assets/js/block.js', array( 'wp-blocks', 'wp-i18n', 'wp-element' ) );
 			
 			wp_enqueue_style( 'conditional_block_editor', CB_URL . 'assets/css/editor.css', array( 'wp-blocks', 'wp-i18n', 'wp-element' ) );
@@ -73,16 +73,21 @@ if ( !class_exists( 'Conditional_Blocks' ) ) {
 		 * 
 		 * @since 0.0.1
 		 */
-		public function render_conditional_block( $attributes ) {
-			
-			print_r($attributes);
-			
+		public function render_conditional_block( $attributes,
+											$content ) {
+
+			if ( is_user_logged_in() ) {
+				return false;
+			}
+			else {
+				return $content;
+			}
 		}
-		
+
 		public function register_block() {
 			
 			register_block_type( 'cb/my-conditional-block', array(
-				'render_callback' => array( $this, render_conditional_block )
+				'render_callback' => array($this, 'render_conditional_block')
 			) );
 		}
 
